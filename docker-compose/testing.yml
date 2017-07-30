@@ -1,0 +1,28 @@
+version: "3.3"
+
+services:
+  tg-subject:
+    build: ../
+    command: yarn run docker-test
+    ports:
+      - "8009:8009"
+    depends_on:
+      - tg-subject-rethinkdb
+    networks:
+      - restserve_ecosystem
+    environment:
+      - DB_HOST=tg-subject-rethinkdb
+      - NODE_ENV=testing
+
+  tg-subject-rethinkdb: 
+    image: rethinkdb
+    networks: 
+      - restserve_ecosystem
+    ports: 
+      - "8080:8080"
+      - "28015:28015"
+      - "29015:29015"
+       
+networks: 
+  restserve_ecosystem: 
+    driver: bridge
