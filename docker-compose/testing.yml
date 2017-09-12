@@ -18,10 +18,6 @@ services:
     image: rethinkdb
     networks: 
       - restserve_ecosystem
-    ports: 
-      - "8080:8080"
-      - "28015:28015"
-      - "29015:29015"
        
 networks: 
   restserve_ecosystem: 

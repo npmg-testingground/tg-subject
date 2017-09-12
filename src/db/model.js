@@ -6,15 +6,10 @@
 
 import Joi from 'joi';
 
-export type SubjectPayloadType = {
-  id?: string,
-  name: string
-};
-
-export const SubjectModel: Object = Joi.object({
+export const SubjectModel = Joi.object({
   name: Joi.string()
 }).required();
 
-export const SubjectModelRequired: Object = Joi.object({
+export const SubjectModelRequired = Joi.object({
 	name: Joi.string().required()
 }).required();
